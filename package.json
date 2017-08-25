@@ -1,0 +1,40 @@
+{
+  "name": "maxan",
+  "version": "1.0.0",
+  "description": "A simple framework for create game servers",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "node ./example/simple_clientserver/server/server.js",
+    "dev": "./node_modules/.bin/nodemon ./example/simple_clientserver/server/server.js",
+    "client-build": "rm dist/libmaxan.min.js && ./node_modules/.bin/uglifyjs dist/libmaxan.js > dist/libmaxan.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hackwork-tymm0/maxan.git"
+  },
+  "keywords": [
+    "gameserver",
+    "games",
+    "server",
+    "framework"
+  ],
+  "author": "tymm0",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hackwork-tymm0/maxan/issues"
+  },
+  "homepage": "https://github.com/hackwork-tymm0/maxan#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "file-exists": "^4.0.0",
+    "ip": "^1.1.5",
+    "lodash": "^4.17.4",
+    "nedb": "^1.8.0",
+    "path": "^0.12.7",
+    "tymlogger": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "uglify-js": "^3.0.28"
+  }
+}
