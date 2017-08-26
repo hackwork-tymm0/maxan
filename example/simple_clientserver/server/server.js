@@ -2,48 +2,13 @@
 const Maxan = require("../../../src/main");
 const path = require("path");
 
-const server = new Maxan({port: 1337});
+const server = new Maxan();
 
-server.action("set", (db, logger, sender) => {
+server.action("test", (lib) => {
 
-    let database = new db({databaseFile: path.resolve(__dirname, 'db', 'maxan.db')});
+    lib.Logger.write(JSON.stringify(lib.Params));
 
-    database.insert({id: 1, data: "i'm"});
-
-    sender.sendFile(path.resolve(__dirname, 'db', 'maxan.db'));
-
-    logger.write("data setted");
-
-});
-
-server.action("get", (db, logger, sender) => {
-
-    let database = new db({databaseFile: path.resolve(__dirname, 'db', 'maxan.db')});
-
-    database.update({old: {id: 1} , new: { id: 1, data: "me" } });
-
-    sender.send({success: true});
-
-    logger.write("data updated");
-
-});
-
-server.action("clean", (db, logger, sender) => {
-
-    let database = new db({databaseFile: path.resolve(__dirname, 'db', 'maxan.db')});
-
-    database.clean();
-
-    sender.send({ success: true });
-
-    logger.write("database cleaned");
-
-});
-
-server.action("what", (db, logger, sender) => {
-
-    const database = new db({databaseFile: path.resolve(__dirname, 'db', 'thefuck.db')});
-    database.insert({ oh: "doge" });
+    lib.Sender.send({ success: true });
 
 });
 

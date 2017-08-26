@@ -23,7 +23,7 @@ MaxanClient.prototype.sendAction = function (action, params) {
             var keys = Object.getOwnPropertyNames(params);
             var template = "?";
 
-            if (keys.length != 1) {
+            if (keys.length != 0) {
 
                 for (var i = 0; i < keys.length; i++) {
 

@@ -33,6 +33,7 @@ class Maxan {
         let actions = new Actions();
 
         actions.add(actionName, callback);
+        new Handle({ port: this.port }).addRouteName(actionName);
 
     }
 

@@ -27,8 +27,8 @@ class Actions {
             
             }
 
-            new Handle({ port: undefined }).addRouteName(actionName);
             listActions.push({ actionName, handler });
+            new Handle({ port: undefined }).addRouteName(actionName);
             logger.write("Action added: " + actionName);
 
         }
@@ -36,8 +36,7 @@ class Actions {
     }
 
     getActions () {
-
-        logger.success(listActions);
+        
         return listActions;
 
     }

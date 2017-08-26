@@ -3,14 +3,16 @@ const _ = require("lodash");
 const path = require("path");
 const Logger = require("tymlogger");
 const FileExists = require("file-exists");
+const URL = require("url");
 
 const logger = new Logger();
 
 class Sender {
 
-    constructor (res) {
+    constructor (req, res) {
 
         this.res = res;
+        this.req = req;
 
     }
 
@@ -68,6 +70,12 @@ class Sender {
             logger.error("File " + filename + " not exists.");
 
         }        
+
+    }
+
+    getParams () {
+
+        return URL.parse(this.req.url, true).query;
 
     }
 

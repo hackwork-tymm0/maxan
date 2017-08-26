@@ -53,9 +53,9 @@ class Handle {
 
         app.get("/action/" + action.actionName, (req, res) => {
 
-            const handler = new CallbackHandler({ response: res });
+            const handler = new CallbackHandler({ request: req, response: res });
             
-            action.handler(handler.db(), handler.logger(action.actionName), handler.sender());
+            action.handler({ Database: handler.db(), Logger: handler.logger(), Sender: handler.sender(), Params: handler.params() });
 
         });
 

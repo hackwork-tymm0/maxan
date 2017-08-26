@@ -7,6 +7,7 @@ class CallbackHandler {
 
     constructor (settings) {
         
+        this.request = settings.request;
         this.response = settings.response;
 
     }
@@ -25,7 +26,13 @@ class CallbackHandler {
 
     sender () {
 
-        return new Sender(this.response);
+        return new Sender(this.request, this.response);
+
+    }
+
+    params () {
+
+        return new Sender(this.request, this.response).getParams();
 
     }
 
