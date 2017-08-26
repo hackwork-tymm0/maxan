@@ -3,12 +3,15 @@ var MaxanClient = function (object) {
 
     this.ip = object.address;
     this.port = object.port;
+    this.actions = undefined;
 
     console.log("");
     console.log('   MaxanClient starts.');
     console.log("");
 
 };
+
+var MaxanActions = undefined;
 
 MaxanClient.prototype.sendAction = function (action, params) {
 
@@ -79,20 +82,28 @@ MaxanClient.prototype.__buildURL = function (method) {
 
 MaxanClient.prototype.__getActions = function () {
 
-    var url = this.__buildURL("/getActions");
-    var xhr = new XMLHttpRequest();
-    var result = null;
+    if (MaxanActions === undefined){
 
-    xhr.open('GET', url, false)
-    xhr.send();
-
-    if (xhr.status != 200) {
-
-        this.__errorLog(xhr.status, xhr.statusText);
+        var url = this.__buildURL("/getActions");
+        var xhr = new XMLHttpRequest();
+        var result = null;
+    
+        xhr.open('GET', url, false)
+        xhr.send();
+    
+        if (xhr.status != 200) {
+    
+            this.__errorLog(xhr.status, xhr.statusText);
+    
+        } else {
+    
+            result = JSON.parse(xhr.responseText);
+            MaxanActions = result;
+        }
 
     } else {
 
-        result = JSON.parse(xhr.responseText);
+        result = MaxanActions
 
     }
 

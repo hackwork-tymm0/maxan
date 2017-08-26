@@ -1,4 +1,4 @@
-# maxan v1.0.0_RELEASE-CANDIDATE (dev)
+# maxan v1.0.2_RELEASE-CANDIDATE (dev)
 A framework for creating game servers
 
 ## Install

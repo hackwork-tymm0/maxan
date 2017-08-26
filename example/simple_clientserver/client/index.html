@@ -8,12 +8,32 @@
 
         <meta charset="utf-8">
 
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="../../../dist/libmaxan.js"></script>
         <script src="app.js"></script>
 
     </head>
 
     <body>
+
+        <div class="user" style="display:none">
+
+            <input type="text" id="username">
+            <a href="#" class="login"> Login </a><br><br>
+            <p class="empty" style="display:none"> your username is empty </p>
+
+        </div>
+
+        <div class="users" style="display:none">
+
+            <div class="listusers">
+
+            </div>
+
+            <a id="addCount" href="#"> Add count </a>
+
+        </div>
+
     </body>
 
 </html>

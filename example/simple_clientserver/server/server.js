@@ -4,11 +4,26 @@ const path = require("path");
 
 const server = new Maxan();
 
-server.action("test", (lib) => {
+let users = [];
 
-    lib.Logger.write(JSON.stringify(lib.Params));
+server.action("addUser", (lib) => {
+
+    users[lib.Params.user] = 0;
+    lib.Logger.write(lib.Params.user + " added");
 
     lib.Sender.send({ success: true });
+
+});
+
+server.action("getUsers", (lib) => {
+
+    lib.Sender.send(users);
+
+});
+
+server.action("addCount", (lib) => {
+
+
 
 });
 

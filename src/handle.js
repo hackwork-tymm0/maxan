@@ -55,7 +55,7 @@ class Handle {
 
             const handler = new CallbackHandler({ request: req, response: res });
             
-            action.handler({ Database: handler.db(), Logger: handler.logger(), Sender: handler.sender(), Params: handler.params() });
+            action.handler({ Database: handler.db(), Logger: handler.logger(action.actionName), Sender: handler.sender(), Params: handler.params() });
 
         });
 

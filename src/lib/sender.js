@@ -27,20 +27,10 @@ class Sender {
 
         if (typeof json == "object") {
             
-            if (_.isEmpty(json) == false) {
-
-                this.res.set("Content-Type", "text/plain");
-                this.res.set("Access-Control-Allow-Origin", null);
-                this.res.send(JSON.stringify(json));
-
-            } else {
-
-                logger.error("Your data is empty!");
-                throw new Error("Your data is empty!")
-                process.exit();
-
-            }
-
+            this.res.set("Content-Type", "text/plain");
+            this.res.set("Access-Control-Allow-Origin", null);
+            this.res.send(JSON.stringify(json));
+            
         } else {
 
             logger.error("Your data is not object! Data: " + json);
